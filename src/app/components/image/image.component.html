@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div
+    *ngIf="image"
+    class="row animate__animated animate__bounce animate__fadeIn"
+  >
+    <div>
+      <img
+        src="{{ image.download_url }}"
+        alt=""
+        style="max-width: 500px; max-height: 500px"
+      />
+      <div class="mt-3">
+        <a [routerLink]="['/']" class="btn btn-danger">Back</a>
+      </div>
+      <div class="mt-3">
+        <button (click)="showDetails()" class="btn btn-info">
+          Show details
+        </button>
+        <mat-tab-group *ngIf="showDetailsBool" class="mt-3 mb-3">
+          <mat-tab label="Image data">
+            <p class="mt-3"><strong>Identifier:</strong>{{ image.id }}</p>
+            <p><strong>author:</strong>{{ image.author }}</p>
+            <p><strong>Size:</strong>{{ image.width }} - {{ image.height }}</p>
+          </mat-tab>
+          <mat-tab label="URL">
+            <p class="mt-3"><strong>Url:</strong>{{ image.url }}</p>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

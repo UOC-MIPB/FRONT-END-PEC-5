@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Images</h1>
+  <mat-spinner *ngIf="images === []"></mat-spinner>
+  <mat-card
+    role="button"
+    *ngFor="let image of images"
+    [routerLink]="['/image', image.id]"
+  >
+    <mat-card-title class="animate__animated animate__bounce animate__fadeIn"
+      >{{ image.id }} - {{ image.author }}</mat-card-title
+    >
+  </mat-card>
+</div>
